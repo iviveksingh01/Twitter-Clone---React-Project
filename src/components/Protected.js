@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
 import { UserAuth } from '../context/AuthContext'
+import { useEffect } from 'react';
 
 function Protected({children}) {
    
