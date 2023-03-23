@@ -3,6 +3,7 @@ import { RefreshIcon } from "@heroicons/react/outline";
 import TweetBox from "./TweetBox";
 import Tweet from "./Tweet";
 import {UserAuth} from '../context/AuthContext'
+import FakeTweets from "./FakeTweets";
 
 // const tweets=[{
 //   profileImg:'https://tse1.mm.bing.net/th?id=OIP.y-nGyqT5AwES8oqp344z4gHaHa&pid=Api&P=0',
@@ -17,7 +18,7 @@ function Feed() {
   let tweet=profile.filter(e => e.active);
   const [localTweet,setlocaltweet] =useState(JSON.parse(localStorage.getItem('profile')));
   return (
-    <div className="col-span-7 lg:col-span-5 border-x">
+    <div className="col-span-7 lg:col-span-5 border-x overflow-scroll">
       <div className="flex items-center justify-between">
         <h1 className="p-5 pb=0 text-xl font-bold">Home</h1>
         <RefreshIcon
@@ -34,6 +35,8 @@ function Feed() {
         {localTweet?.tweets.map((tweeet,id)=>
               <Tweet key={id} tweet={tweeet} username={tweet[0]?.username} profileImg={tweet[0]?.profileImg}/>
         )}
+
+        <FakeTweets />
         
       </div>
     </div>

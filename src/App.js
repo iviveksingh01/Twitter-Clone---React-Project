@@ -7,14 +7,16 @@ import Protected from "./components/Protected";
 
 function App() {
   return (
-    <div className="App lg:max-w-7xl mx-auto max-h-screen ">
+    <div className="App lg:max-w-7xl mx-auto max-h-screen">
       <AuthContextProvider>
         <main className="grid grid-cols-9">
           <SideBar />
           <Protected>
             <Feed />
             <Widgets />
-          </Protected>
+            </Protected>
+         
+        
         </main>
       </AuthContextProvider>
     </div>

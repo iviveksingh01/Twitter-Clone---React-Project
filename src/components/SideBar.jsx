@@ -43,7 +43,7 @@ const SideBar = () => {
 
 
   return (
-    <div className="col-span-2 flex flex-col items-center px-4 md:items-start">
+    <div className="col-span-2 flex flex-col items-center px-4 md:items-start overflow-hidden">
       <img
         className="m-3 h-10 w-12"
         src="http://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s1600/Twitter+logo+2012.png"
