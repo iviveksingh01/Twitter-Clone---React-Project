@@ -4,7 +4,7 @@ import { SearchIcon } from "@heroicons/react/outline";
 
 function Widgets() {
   return (
-    <div className="hidden lg:inline px-2 mt-2 col-span-2 overflow-hidden">
+    <div className="hidden lg:inline px-2 mt-2 col-span-2">
       <div
         className="flex items-center space-x-2 bg-gray-100
     p-3 rounded-full mt-2 mb-4"

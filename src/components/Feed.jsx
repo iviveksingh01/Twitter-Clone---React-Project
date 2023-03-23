@@ -18,7 +18,7 @@ function Feed() {
   let tweet=profile.filter(e => e.active);
   const [localTweet,setlocaltweet] =useState(JSON.parse(localStorage.getItem('profile')));
   return (
-    <div className="col-span-7 lg:col-span-5 border-x overflow-scroll">
+    <div className="col-span-7 lg:col-span-5 border-x overflow-y-auto">
       <div className="flex items-center justify-between">
         <h1 className="p-5 pb=0 text-xl font-bold">Home</h1>
         <RefreshIcon
@@ -31,7 +31,7 @@ function Feed() {
         <TweetBox setChange={setlocaltweet}/>
       </div>
 
-      <div>
+      <div className="max-h-100 overflow-y-auto">
         {localTweet?.tweets.map((tweeet,id)=>
               <Tweet key={id} tweet={tweeet} username={tweet[0]?.username} profileImg={tweet[0]?.profileImg}/>
         )}

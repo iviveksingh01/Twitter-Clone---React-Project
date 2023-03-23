@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import TimeAgo from "react-timeago";
+import { UserAuth } from "../context/AuthContext";
 
 function Comments(props) {
 
   const[input,setInput] = useState();
+  const {user} =UserAuth();
   
   const addComment = (e) =>{
     e.preventDefault();
@@ -23,22 +25,22 @@ function Comments(props) {
           <div key={props.comments.length} className={"realtive flex space-x-2"}>
             <hr className="absolute left-5 top-10 h-8 border-x border-twitter/30" />
             <img
-              src={props.profileImg}
+              src={user.profileImg}
               alt=""
               className="mt-2 h-7 w-7 object-cover rounded-full"
             />
             <div>
               <div className="flex items-center space-x-1">
-                <p className="mr-1 font-bold">{props.username}</p>
+                <p className="mr-1 font-bold">{user.displayName}</p>
                 <p className="hidden text-sm text-gray-500 lg:inline">
-                  @{props.username?.replace(/\s+/g, "").toLowerCase()}
+                  @{user.displayName?.replace(/\s+/g, "").toLowerCase()}
                 </p>
               </div>
               <p className="flex space-x-24">
                 <input
                   type={"text"}
                   placeholder={"Tweet Your Reply"}
-                  className="align-left"  
+                  className="align-left outline-none"  
                   value={input}
                   onChange={(e)=>setInput(e.target.value)}
                 />
