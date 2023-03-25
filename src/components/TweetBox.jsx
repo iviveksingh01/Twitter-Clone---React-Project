@@ -58,7 +58,7 @@ function TweetBox(props) {
             type={"text"}
             onChange={(e) => setImgUrl(e.target.value)}
             placeholder="Optional: Enter Image Url"/>
-          <div className="flex items-center ">
+          <div className="flex space-between lg:items-center ">
             <div className="flex flex-1 space-x-2 text-twitter">
               <PhotographIcon className="h-5 w-5 cursor-pointer transition-transform duration-150 ease-out hover:scale-150"/>
               <SearchCircleIcon className="h-5 w-5" />

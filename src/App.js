@@ -1,23 +1,19 @@
 import "./App.css";
-import SideBar from "./components/SideBar";
-import Feed from "./components/Feed";
-import Widgets from "./components/Widgets";
 import { AuthContextProvider } from "./context/AuthContext";
-import Protected from "./components/Protected";
+import Home from "./components/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Outlets from "./components/Outlets";
 
 function App() {
   return (
-    <div className="App lg:max-w-7xl mx-auto max-h-screen overflow-hidden">
-      <AuthContextProvider>
-        <main className="grid grid-cols-9">
-          <SideBar />
-          <Protected>
-            <Feed />
-            <Widgets />
-          </Protected>
-        </main>
-      </AuthContextProvider>
-    </div>
+    <AuthContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route index path="/" element={<Home />} />
+          <Route path="/main" element={<Outlets />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthContextProvider>
   );
 }
 

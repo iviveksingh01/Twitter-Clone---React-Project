@@ -7,7 +7,11 @@ module.exports = {
     extend: {
       colors:{
         twitter:'#00ADED',
-      }
+        backblue:"#002841"
+      },
+      backgroundImage: {
+        'twitterBackground': "url('../public/images/twitter-home-logo.jpg')",
+      },
     },
   },
   plugins: [

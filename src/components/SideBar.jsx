@@ -10,35 +10,39 @@ import {
   HomeIcon,
 } from "@heroicons/react/outline";
 import SideBarRow from "./SideBarRow";
+import { useNavigate } from "react-router-dom";
 
 import { UserAuth } from "../context/AuthContext";
 
 const SideBar = () => {
+  const navigate = useNavigate();
   const { googleSignIn, logOut,user } = UserAuth();
 
   const [isSignIn, setSignIn] = useState(true);
-  const [title, setTitle] = useState("Sign In");
+ // const [title, setTitle] = useState("Sign In");
 
   const handleLogin = async () => {
     try {
-      let signIn = !isSignIn;
-      setSignIn(signIn);
-      if (isSignIn) {
-        await googleSignIn();
-      } else {
+      // let signIn = !isSignIn;
+      // setSignIn(signIn);
+      // if (isSignIn) {
+      //   await googleSignIn();
+      // } else {
         await logOut();
-      }
+      //}
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    if (user != null) {
-      setTitle("Sign Out");
-    } else {
-      setTitle("Sign In");
+    if (!user) {
+      navigate('/')
     }
+    //   setTitle("Sign Out");
+    // } else {
+    //   setTitle("Sign In");
+    // }
   }, [user]);
 
 
@@ -56,7 +60,7 @@ const SideBar = () => {
       <SideBarRow Icon={BookmarkIcon} title="Bookmarks" />
       <SideBarRow Icon={CollectionIcon} title="Lists" />
       <button onClick={handleLogin}>
-        <SideBarRow Icon={UserIcon} title={title} />
+        <SideBarRow Icon={UserIcon} title={"Sign Out"} />
       </button>
       <SideBarRow Icon={DotsCircleHorizontalIcon} title="More" />
     </div>
