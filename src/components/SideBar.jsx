@@ -11,25 +11,15 @@ import {
 } from "@heroicons/react/outline";
 import SideBarRow from "./SideBarRow";
 import { useNavigate } from "react-router-dom";
-
 import { UserAuth } from "../context/AuthContext";
 
 const SideBar = () => {
   const navigate = useNavigate();
-  const { googleSignIn, logOut,user } = UserAuth();
-
-  const [isSignIn, setSignIn] = useState(true);
- // const [title, setTitle] = useState("Sign In");
+  const { logOut, user } = UserAuth();
 
   const handleLogin = async () => {
     try {
-      // let signIn = !isSignIn;
-      // setSignIn(signIn);
-      // if (isSignIn) {
-      //   await googleSignIn();
-      // } else {
-        await logOut();
-      //}
+      await logOut();
     } catch (error) {
       console.log(error);
     }
@@ -37,14 +27,9 @@ const SideBar = () => {
 
   useEffect(() => {
     if (!user) {
-      navigate('/')
+      navigate("/");
     }
-    //   setTitle("Sign Out");
-    // } else {
-    //   setTitle("Sign In");
-    // }
   }, [user]);
-
 
   return (
     <div className="col-span-2 flex flex-col items-center px-4 md:items-start overflow-hidden">

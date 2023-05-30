@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from "firebase/auth";
 
-// TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDgcQaF6ZczwfpwylFv3FSvPf2wjobJ2L4",
   authDomain: "twitter--clone-98a65.firebaseapp.com",

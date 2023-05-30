@@ -64,7 +64,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logOut = () =>{
-   // console.log(user);
+   
     if(user){
       profile.some(obj => 
         obj.username === user.displayName?obj.active=false:''
