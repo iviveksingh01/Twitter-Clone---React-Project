@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import TimeAgo from "react-timeago";
 import Comments from "./Comments";
+import { HeartIcon } from '@heroicons/react/solid';
 import {
   ChatAlt2Icon,
-  HeartIcon,
   SwitchHorizontalIcon,
   UploadIcon,
 } from "@heroicons/react/outline";
@@ -12,8 +12,17 @@ import {
 function Tweet(props) {
 
   const[display,setDisplay]=useState(false)
+  const [likes, setLikes] = useState(props.tweet.like?props.tweet.like:0);
+  const [isLiked, setIsLiked] = useState(false);
 
-  const likesCalculator = ()=>{}
+  const likesCalculator = ()=>{
+    if (isLiked) {
+      setLikes(parseInt(likes) - 1);
+    } else {
+      setLikes(parseInt(likes) + 1);
+    }
+    setIsLiked(!isLiked);
+  }
   const[comments,setComments] = useState([
     {
       createdAt: "Mon Mar 21 2023 11:02:56 GMT+0530 (India Standard Time)",
@@ -63,7 +72,8 @@ function Tweet(props) {
           <SwitchHorizontalIcon className="h-5 w-5" />
         </div>
         <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
-          <HeartIcon className="h-5 w-5" onClick={likesCalculator}/>
+          <HeartIcon className={`h-5 w-5 ${isLiked ? 'text-red-500' : ''}`} onClick={likesCalculator}/>
+          <p>{likes}</p>
         </div>
         <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
           <UploadIcon className="h-5 w-5" />

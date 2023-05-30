@@ -25,7 +25,7 @@ function Feed() {
 
       <div className="">
         {localTweet?.tweets.map((tweeet,id)=>
-              <Tweet key={id} tweet={tweeet} username={tweet[0]?.username} profileImg={tweet[0]?.profileImg}/>
+              <Tweet key={id} tweet={tweeet} username={tweet[0]?.username} profileImg={tweet[0]?.profileImg} likes={0}/>
         )}
 
         <FakeTweets />
